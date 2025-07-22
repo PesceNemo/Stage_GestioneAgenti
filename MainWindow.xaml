@@ -1,0 +1,25 @@
+﻿<Window x:Class="GestioneAgenti.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="10" ItemsSource="{Binding dati}" CanUserAddRows="False" IsReadOnly="True" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Agente" Binding="{Binding Agente}" />
+                <DataGridTextColumn Header="Cash" Binding="{Binding Cash}" />
+                <DataGridTextColumn Header="Ordine Origine" Binding="{Binding OrdineOrigine}" />
+                <DataGridCheckBoxColumn Header="Pagato" Binding="{Binding Pagato}" />
+                <DataGridTextColumn Header="Data Fattura Saldata" Binding="{Binding DataFatturaSaldata, StringFormat=d}" />
+                <DataGridTemplateColumn Header="Stato Manuale" Width="180">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding DataContext.StatiManualiDisponibili, RelativeSource={RelativeSource AncestorType=Window}}"
+                              SelectedItem="{Binding StatoManuale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              SelectionChanged="ComboBox_SelectionChanged"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
