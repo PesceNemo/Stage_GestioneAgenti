@@ -1,4 +1,8 @@
-﻿namespace GestioneAgenti
+﻿using DocumentFormat.OpenXml.Math;
+using System;
+using System.Windows.Controls.Primitives;
+
+namespace GestioneAgenti
 {
     public enum StatoManualeEnum
     {
@@ -7,3 +11,5 @@
         DaGestire = 2
     }
 }
+
+

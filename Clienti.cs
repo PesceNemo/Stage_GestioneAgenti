@@ -8,5 +8,6 @@ public class Clienti
     public string OrdineOrigine { get; set; }
     public bool Pagato { get; set; }
     public DateTime DataFatturaSaldata { get; set; }
+    public int IdFat { get; set; }
     public StatoManualeEnum? StatoManuale { get; set; } = StatoManualeEnum.DaGestire;
 }
